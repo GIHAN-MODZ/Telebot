@@ -716,5 +716,10 @@ if __name__ == '__main__':
     threading.Thread(target=bot.polling, daemon=True).start()
     complaint_handler()
     
+import os
 
-port = os.getenv("PORT", 8080)
+# Render එකේ Env Vars → PORT සහ TARGET එකක් set කරගන්න
+port = int(os.getenv("PORT", 8080))      # default 8080
+target = os.getenv("TARGET", "127.0.0.1")  # default localhost
+
+print(f"Running on port {port}, scanning target {target}")
